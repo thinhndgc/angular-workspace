@@ -1,4 +1,29 @@
 <div class="ui top attached tabular menu">
-  <app-tab-item-menu *ngFor="let tabDataItem of tabData" [tabInputData]="tabDataItem"></app-tab-item-menu>
+  <a *ngFor="let tabDataItem of tabData; let i = index" [ngClass]="{'active': i === 0}" class="item" [attr.data-tab]="tabDataItem.tabId">{{tabDataItem.tabId}}</a>
 </div>
-<app-tab-item-data *ngFor="let tabDataItem2 of tabData" [tabInputData2]="tabDataItem2"></app-tab-item-data>
+<div *ngFor="let tabDataItem of tabData; let i = index" [ngClass]="{'active': i === 0}" class="ui bottom attached tab segment"
+  [attr.data-tab]="tabDataItem.tabId">
+  <div class="ui header medium">{{tabDataItem.tabName}}</div>
+  <div class="ui grid">
+    <div class="four wide column" *ngFor="let item of textBoxList; let i = index">
+      <div class="ui labeled input">
+        <div class="ui label">
+          Setting {{i+1}}
+        </div>
+        <input type="text" placeholder="Text box {{i + 1}}">
+      </div>
+    </div>
+    <div class="four wide column" *ngFor="let combo of comboBoxList; let ind = index">
+      <div class="ui selection dropdown">
+        <input type="hidden" name="option">
+        <i class="dropdown icon"></i>
+        <div class="default text">Option {{i+1}}</div>
+        <div class="menu">
+          <div class="item" data-value="1" *ngFor="let option of comboBoxOptionList; let idx = index">Option {{idx+1}}
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

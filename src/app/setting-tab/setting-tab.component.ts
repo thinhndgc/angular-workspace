@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewChecked } from '@angular/core';
+import { Component, OnInit, AfterViewChecked, Input } from '@angular/core';
 import { Setting } from './setting-tab.model';
 declare var $: any;
 @Component({
@@ -7,23 +7,23 @@ declare var $: any;
   styleUrls: ['./setting-tab.component.css']
 })
 export class SettingTabComponent implements OnInit {
-  tabData: Setting[];
-
+  @Input() tabData: Setting;
+  textBoxList: number[];
+  comboBoxList: number[];
+  comboBoxOptionList: number[];
   constructor() {
-    this.tabData = [];
-    for (var index = 0; index < 10; index++) {
-      let tabId = 'tab'+index;
-      let tabName = 'This is tab ' + index;
-      this.tabData.push(new Setting(tabId, tabName));
-    }
+    this.textBoxList = Array(5).fill(1);
+    this.comboBoxList = Array(20).fill(1);
+    this.comboBoxOptionList = Array(100).fill(1);
   }
 
   ngOnInit() {
-    
   }
-
+  
   ngAfterViewChecked() {
+    $('.ui.dropdown').dropdown();
     $('.menu .item').tab();
+    
   }
 
 }
