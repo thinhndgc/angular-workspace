@@ -10,9 +10,9 @@ export class HomeComponent implements OnInit {
 
     constructor() {
       this.tabData = [];
-      for (var index = 0; index < 10; index++) {
-        let tabId = 'Tab '+index;
-        let tabName = 'This is tab ' + index;
+      for (let index = 0; index < 10; index++) {
+        const tabId = 'Tab ' + (index + 1);
+        const tabName = 'This is tab ' + (index + 1);
         this.tabData.push(new Setting(tabId, tabName));
       }
     }

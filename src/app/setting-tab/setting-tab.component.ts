@@ -1,6 +1,7 @@
 import { Component, OnInit, AfterViewChecked, Input } from '@angular/core';
 import { Setting } from './setting-tab.model';
 declare var $: any;
+
 @Component({
   selector: 'app-setting-tab',
   templateUrl: './setting-tab.component.html',
@@ -17,13 +18,11 @@ export class SettingTabComponent implements OnInit {
     this.comboBoxOptionList = Array(100).fill(1);
   }
 
-  ngOnInit() {
-  }
-  
+  ngOnInit() {}
+
   ngAfterViewChecked() {
-    $('.ui.dropdown').dropdown();
     $('.menu .item').tab();
-    
-  }
+    // $('.ui.dropdown').dropdown();
+  };
 
 }
