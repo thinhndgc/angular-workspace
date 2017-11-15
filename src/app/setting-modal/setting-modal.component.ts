@@ -7,16 +7,14 @@ declare var $: any;
 })
 export class SettingModalComponent implements OnInit {
   @Input() numberOfOption: number;
+  @Input() modalId: number;
   optionList = Array;
 
-  constructor() {
-    
-  }
+  constructor() {}
 
   ngOnInit() {
     $('.dropdown-modal').dropdown({
       showOnFocus: false
     });
   }
-
 }
