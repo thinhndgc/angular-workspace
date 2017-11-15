@@ -1,0 +1,16 @@
+<div class="ui modal">
+  <i class="close icon"></i>
+  <div class="header">
+    Setting modal
+  </div>
+  <div class="content">
+    <div class="ui selection dropdown dropdown-modal">
+      <input type="hidden" name="option">
+      <i class="dropdown icon"></i>
+      <div class="default text">Combobox</div>
+      <div class="menu">
+        <div class="item" data-value="1" *ngFor="let option of optionList(numberOfOption); let index3 = index">Option {{index3+1}}</div>
+      </div>
+    </div>
+  </div>
+</div>

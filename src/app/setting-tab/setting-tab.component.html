@@ -5,7 +5,7 @@
   [attr.data-tab]="tabDataItem.tabId">
   <div class="ui header medium">{{tabDataItem.tabName}}</div>
   <div class="ui grid">
-    <div class="four wide column" *ngFor="let item of textBoxList; let i = index">
+    <div class="four wide column" *ngFor="let item of textBoxList(numberOfTextBox); let i = index">
       <div class="ui labeled input">
         <div class="ui label">
           Setting {{i+1}}
@@ -13,16 +13,16 @@
         <input type="text" placeholder="Text box {{i + 1}}">
       </div>
     </div>
-    <!-- <div class="four wide column" *ngFor="let combo of comboBoxList; let ind = index">
-      <div class="ui selection dropdown">
+    <div class="four wide column" *ngFor="let combo of comboBoxList(numberOfComboBox); let index2 = index">
+      <div class="ui selection dropdown dropdown-parent">
         <input type="hidden" name="option">
         <i class="dropdown icon"></i>
-        <div class="default text">Option {{i+1}}</div>
+        <div class="default text">Combobox {{index2+1}}</div>
         <div class="menu">
-          <div class="item" data-value="1" *ngFor="let option of comboBoxOptionList; let idx = index">Option {{idx+1}}
-          </div>
+          <div class="item" data-value="1" (click)="openModal()">Open</div>
         </div>
       </div>
-    </div> -->
+    </div>
   </div>
 </div>
+<app-setting-modal [numberOfOption]="100"></app-setting-modal>

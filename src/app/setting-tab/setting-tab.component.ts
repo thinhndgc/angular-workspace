@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewChecked, Input } from '@angular/core';
+import { Component, OnInit, AfterViewChecked, AfterViewInit, Input } from '@angular/core';
 import { Setting } from './setting-tab.model';
 declare var $: any;
 
@@ -9,20 +9,30 @@ declare var $: any;
 })
 export class SettingTabComponent implements OnInit {
   @Input() tabData: Setting;
-  textBoxList: number[];
-  comboBoxList: number[];
-  comboBoxOptionList: number[];
+  @Input() numberOfTextBox: number;
+  @Input() numberOfComboBox: number;
+  textBoxList = Array;
+  comboBoxList = Array;
+
   constructor() {
-    this.textBoxList = Array(5).fill(1);
-    this.comboBoxList = Array(20).fill(1);
-    this.comboBoxOptionList = Array(100).fill(1);
+
   }
 
   ngOnInit() {}
 
-  ngAfterViewChecked() {
+  ngAfterViewInit() {
     $('.menu .item').tab();
-    // $('.ui.dropdown').dropdown();
+    $('.dropdown-parent').dropdown();
   };
+
+  openModal(): void{
+    $('.ui.modal').modal({
+      onShow: function() {
+        $('.dropdown-modal').dropdown({
+          showOnFocus: false
+        });
+      }
+    }).modal('show');
+  }
 
 }
