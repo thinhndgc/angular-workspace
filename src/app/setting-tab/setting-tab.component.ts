@@ -21,7 +21,15 @@ export class SettingTabComponent implements OnInit {
   ngOnInit() {}
 
   ngAfterViewInit() {
+    this.initTabs();
+    this.initDropdown();
+  }
+
+  initTabs(): void {
     $('.menu .item').tab();
+  }
+
+  initDropdown(): void {
     $('.dropdown-parent').dropdown();
   }
 

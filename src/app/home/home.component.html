@@ -5,6 +5,16 @@
     </a>
   </div>
 </div>
+<div class="ui container seting">
+  <button class="ui labeled icon button" (click)="addTab()">
+    <i class="plus icon"></i>
+    Add tab
+  </button>
+  <button class="ui right labeled icon button" (click)="removeTab()">
+    <i class="right minus icon"></i>
+    Remove tab
+  </button>
+</div>
 <div class="ui container">
   <app-setting-tab [tabData]="tabData"></app-setting-tab>
 </div>
