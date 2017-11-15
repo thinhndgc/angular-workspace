@@ -13,7 +13,10 @@ export class HomeComponent implements OnInit {
       for (let index = 0; index < 10; index++) {
         const tabId = 'Tab ' + (index + 1);
         const tabName = 'This is tab ' + (index + 1);
-        this.tabData.push(new Setting(tabId, tabName));
+        const numberOfTextBox = 5;
+        const numberOfComboBox = 20;
+        const numberOfModalComboBox = 1;
+        this.tabData.push(new Setting(tabId, tabName, numberOfTextBox, numberOfComboBox, numberOfModalComboBox));
       }
     }
 

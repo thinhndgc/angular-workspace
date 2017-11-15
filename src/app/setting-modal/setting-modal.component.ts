@@ -7,7 +7,6 @@ declare var $: any;
 })
 export class SettingModalComponent implements OnInit {
   @Input() numberOfOption: number;
-  
   optionList = Array;
 
   constructor() {

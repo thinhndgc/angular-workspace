@@ -9,8 +9,6 @@ declare var $: any;
 })
 export class SettingTabComponent implements OnInit {
   @Input() tabData: Setting;
-  @Input() numberOfTextBox: number;
-  @Input() numberOfComboBox: number;
   textBoxList = Array;
   comboBoxList = Array;
 
@@ -26,13 +24,7 @@ export class SettingTabComponent implements OnInit {
   };
 
   openModal(): void{
-    $('.ui.modal').modal({
-      onShow: function() {
-        $('.dropdown-modal').dropdown({
-          showOnFocus: false
-        });
-      }
-    }).modal('show');
+    $('.ui.modal').modal('show');
   }
 
 }
